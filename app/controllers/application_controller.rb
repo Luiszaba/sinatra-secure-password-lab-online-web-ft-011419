@@ -35,7 +35,7 @@ class ApplicationController < Sinatra::Base
     erb :login
   end
 
-  post "/account" do
+  post "/" do
     user = User.find_by(username: params[:username])
     if user && user.authentication(params[:password])
       session[:user_id] = user.id
